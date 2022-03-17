@@ -13,7 +13,7 @@ test("Check predicates", () => {
 
   expect(listInvalidPredicates(conditions, schema)).toEqual(["somePredicate"]);
 
-  predicate.somePredicate = function() {
+  predicate.somePredicate = function () {
     return false;
   };
 

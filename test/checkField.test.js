@@ -26,7 +26,7 @@ test("AND in > 5 && < 12", () => {
   expect(checkField(15, { greater: 5, less: 12 })).toBeFalsy();
 });
 
-test("NOT with AND in ( > 5 && < 12) ", function() {
+test("NOT with AND in ( > 5 && < 12) ", function () {
   expect(checkField(10, { not: { greater: 5 } })).toBeFalsy();
   expect(checkField(10, { not: { less: 12 } })).toBeFalsy();
   expect(checkField(10, { not: { greater: 5, less: 12 } })).toBeFalsy();
@@ -41,7 +41,12 @@ test("OR with < 5 || > 12", () => {
 });
 
 test("or with array", () => {
-  let rule = { or: [{ greater: 5, less: 12 }, { greater: 20, less: 30 }] };
+  let rule = {
+    or: [
+      { greater: 5, less: 12 },
+      { greater: 20, less: 30 },
+    ],
+  };
   expect(checkField(1, rule)).toBeFalsy();
   expect(checkField(8, rule)).toBeTruthy();
   expect(checkField(15, rule)).toBeFalsy();
@@ -50,7 +55,12 @@ test("or with array", () => {
 });
 
 test("and with array", () => {
-  let rule = { and: [{ greater: 5, less: 12 }, { greater: 10, less: 30 }] };
+  let rule = {
+    and: [
+      { greater: 5, less: 12 },
+      { greater: 10, less: 30 },
+    ],
+  };
   expect(checkField(1, rule)).toBeFalsy();
   expect(checkField(8, rule)).toBeFalsy();
   expect(checkField(15, rule)).toBeFalsy();

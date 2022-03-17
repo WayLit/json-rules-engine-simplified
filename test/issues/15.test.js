@@ -13,7 +13,7 @@ test("support $ single level of nesting", () => {
     },
   ];
   let engine = new Engine(rules);
-  return engine.run({ address: { zip: 10 } }).then(events => {
+  return engine.run({ address: { zip: 10 } }).then((events) => {
     expect(events.length).toEqual(1);
     expect(events[0]).toEqual({ type: "match" });
   });
@@ -31,7 +31,7 @@ test("support $ double level of nesting", () => {
     },
   ];
   let engine = new Engine(rules);
-  return engine.run({ person: { address: { zip: 10 } } }).then(events => {
+  return engine.run({ person: { address: { zip: 10 } } }).then((events) => {
     expect(events.length).toEqual(1);
     expect(events[0]).toEqual({ type: "match" });
   });

@@ -52,10 +52,12 @@ let schema = {
 };
 
 test("list all predicates", () => {
-  expect(listAllPredicates(rules.map(r => r.conditions), schema)).toEqual([
-    "is",
-    "equal",
-  ]);
+  expect(
+    listAllPredicates(
+      rules.map((r) => r.conditions),
+      schema
+    )
+  ).toEqual(["is", "equal"]);
 });
 
 test("valid rules", () => {
@@ -64,5 +66,5 @@ test("valid rules", () => {
   let engine = new Engine(rules, schema);
   return engine
     .run({ primaryMedication: { type: "C" }, medications: [{ type: "D" }] })
-    .then(event => expect(event.length).toEqual(1));
+    .then((event) => expect(event.length).toEqual(1));
 });

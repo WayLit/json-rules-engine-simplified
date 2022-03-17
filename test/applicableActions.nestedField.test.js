@@ -11,7 +11,7 @@ let rules = [
   },
 ];
 
-test("check nested fields work", function() {
+test("check nested fields work", function () {
   expect(applicableActions(rules, {})).toEqual([{ type: "remove" }]);
   expect(applicableActions(rules, { address: { line: "some" } })).toEqual([]);
 });

@@ -1,6 +1,6 @@
 import applicableActions from "../src/applicableActions";
 
-test("check nested fields work", function() {
+test("check nested fields work", function () {
   let rules = [
     {
       conditions: { address: "empty" },
@@ -14,7 +14,7 @@ test("check nested fields work", function() {
   expect(applicableActions(rules, { address: { line: "some" } })).toEqual([]);
 });
 
-test("check fields of different types", function() {
+test("check fields of different types", function () {
   let rules = [
     {
       conditions: { address: "empty" },

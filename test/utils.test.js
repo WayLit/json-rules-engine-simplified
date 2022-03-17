@@ -11,7 +11,7 @@ import {
 import { testInProd } from "./utils";
 
 test("array flatmap", () => {
-  expect(flatMap([[1, 2], [3], [4, 5]], x => x)).toEqual([1, 2, 3, 4, 5]);
+  expect(flatMap([[1, 2], [3], [4, 5]], (x) => x)).toEqual([1, 2, 3, 4, 5]);
 });
 
 test("isObject", () => {
@@ -72,7 +72,10 @@ test("extract referenced schema", () => {
     },
   };
 
-  let { definitions: { medication }, properties: { registration } } = schema;
+  let {
+    definitions: { medication },
+    properties: { registration },
+  } = schema;
 
   expect(isRefArray("medications", schema)).toBeTruthy();
   expect(extractRefSchema("medications", schema)).toEqual(medication);

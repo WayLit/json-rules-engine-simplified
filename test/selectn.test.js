@@ -1,6 +1,6 @@
 import selectn from "selectn";
 
-test("selectn on array", function() {
+test("selectn on array", function () {
   let a = {
     medications: {
       type: "A",

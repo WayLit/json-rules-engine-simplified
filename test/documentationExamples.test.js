@@ -82,11 +82,11 @@ test("first example", () => {
   expect.assertions(5);
 
   return Promise.all([
-    engine.run({}).then(res => expect(res).toEqual([EVENT])),
-    engine.run({ firstName: null }).then(res => expect(res).toEqual([EVENT])),
-    engine.run({ firstName: "" }).then(res => expect(res).toEqual([EVENT])),
-    engine.run({ firstName: "  " }).then(res => expect(res).toEqual([])),
-    engine.run({ firstName: "some" }).then(res => expect(res).toEqual([])),
+    engine.run({}).then((res) => expect(res).toEqual([EVENT])),
+    engine.run({ firstName: null }).then((res) => expect(res).toEqual([EVENT])),
+    engine.run({ firstName: "" }).then((res) => expect(res).toEqual([EVENT])),
+    engine.run({ firstName: "  " }).then((res) => expect(res).toEqual([])),
+    engine.run({ firstName: "some" }).then((res) => expect(res).toEqual([])),
   ]);
 });
 
@@ -104,11 +104,11 @@ test("Conditionals with arguments", () => {
   expect.assertions(5);
 
   return Promise.all([
-    engine.run({}).then(res => expect(res).toEqual([])),
-    engine.run({ age: null }).then(res => expect(res).toEqual([EVENT])),
-    engine.run({ age: 15 }).then(res => expect(res).toEqual([EVENT])),
-    engine.run({ age: 16 }).then(res => expect(res).toEqual([])),
-    engine.run({ age: 21 }).then(res => expect(res).toEqual([])),
+    engine.run({}).then((res) => expect(res).toEqual([])),
+    engine.run({ age: null }).then((res) => expect(res).toEqual([EVENT])),
+    engine.run({ age: 15 }).then((res) => expect(res).toEqual([EVENT])),
+    engine.run({ age: 16 }).then((res) => expect(res).toEqual([])),
+    engine.run({ age: 21 }).then((res) => expect(res).toEqual([])),
   ]);
 });
 
@@ -129,10 +129,10 @@ test("AND", () => {
   expect.assertions(4);
 
   return Promise.all([
-    engine.run({ age: 16 }).then(res => expect(res).toEqual([])),
-    engine.run({ age: 17 }).then(res => expect(res).toEqual([EVENT])),
-    engine.run({ age: 69 }).then(res => expect(res).toEqual([EVENT])),
-    engine.run({ age: 70 }).then(res => expect(res).toEqual([])),
+    engine.run({ age: 16 }).then((res) => expect(res).toEqual([])),
+    engine.run({ age: 17 }).then((res) => expect(res).toEqual([EVENT])),
+    engine.run({ age: 69 }).then((res) => expect(res).toEqual([EVENT])),
+    engine.run({ age: 70 }).then((res) => expect(res).toEqual([])),
   ]);
 });
 
@@ -155,10 +155,10 @@ test("NOT", () => {
   expect.assertions(4);
 
   return Promise.all([
-    engine.run({ age: 16 }).then(res => expect(res).toEqual([EVENT])),
-    engine.run({ age: 17 }).then(res => expect(res).toEqual([])),
-    engine.run({ age: 69 }).then(res => expect(res).toEqual([])),
-    engine.run({ age: 70 }).then(res => expect(res).toEqual([EVENT])),
+    engine.run({ age: 16 }).then((res) => expect(res).toEqual([EVENT])),
+    engine.run({ age: 17 }).then((res) => expect(res).toEqual([])),
+    engine.run({ age: 69 }).then((res) => expect(res).toEqual([])),
+    engine.run({ age: 70 }).then((res) => expect(res).toEqual([EVENT])),
   ]);
 });
 
@@ -178,10 +178,10 @@ test("OR", () => {
   expect.assertions(4);
 
   return Promise.all([
-    engine.run({ age: 16 }).then(res => expect(res).toEqual([EVENT])),
-    engine.run({ age: 17 }).then(res => expect(res).toEqual([])),
-    engine.run({ age: 69 }).then(res => expect(res).toEqual([])),
-    engine.run({ age: 70 }).then(res => expect(res).toEqual([EVENT])),
+    engine.run({ age: 16 }).then((res) => expect(res).toEqual([EVENT])),
+    engine.run({ age: 17 }).then((res) => expect(res).toEqual([])),
+    engine.run({ age: 69 }).then((res) => expect(res).toEqual([])),
+    engine.run({ age: 70 }).then((res) => expect(res).toEqual([EVENT])),
   ]);
 });
 
@@ -202,19 +202,19 @@ test("multi field default AND", () => {
   return Promise.all([
     engine
       .run({ age: 16, country: "China" })
-      .then(res => expect(res).toEqual([])),
+      .then((res) => expect(res).toEqual([])),
     engine
       .run({ age: 16, country: "Mexico" })
-      .then(res => expect(res).toEqual([])),
+      .then((res) => expect(res).toEqual([])),
     engine
       .run({ age: 16, country: "USA" })
-      .then(res => expect(res).toEqual([EVENT])),
+      .then((res) => expect(res).toEqual([EVENT])),
     engine
       .run({ age: 69, country: "USA" })
-      .then(res => expect(res).toEqual([EVENT])),
+      .then((res) => expect(res).toEqual([EVENT])),
     engine
       .run({ age: 70, country: "USA" })
-      .then(res => expect(res).toEqual([])),
+      .then((res) => expect(res).toEqual([])),
   ]);
 });
 
@@ -242,19 +242,19 @@ test("multi field OR", () => {
   return Promise.all([
     engine
       .run({ age: 16, country: "China", state: "Beijing" })
-      .then(res => expect(res).toEqual([])),
+      .then((res) => expect(res).toEqual([])),
     engine
       .run({ age: 16, country: "China", state: "NY" })
-      .then(res => expect(res).toEqual([EVENT])),
+      .then((res) => expect(res).toEqual([EVENT])),
     engine
       .run({ age: 16, country: "USA" })
-      .then(res => expect(res).toEqual([EVENT])),
+      .then((res) => expect(res).toEqual([EVENT])),
     engine
       .run({ age: 80, state: "NY" })
-      .then(res => expect(res).toEqual([EVENT])),
+      .then((res) => expect(res).toEqual([EVENT])),
     engine
       .run({ age: 69, country: "USA" })
-      .then(res => expect(res).toEqual([EVENT])),
+      .then((res) => expect(res).toEqual([EVENT])),
   ]);
 });
 
@@ -284,17 +284,17 @@ test("multi field NOT", () => {
   return Promise.all([
     engine
       .run({ age: 16, country: "China", state: "Beijing" })
-      .then(res => expect(res).toEqual([EVENT])),
+      .then((res) => expect(res).toEqual([EVENT])),
     engine
       .run({ age: 16, country: "China", state: "NY" })
-      .then(res => expect(res).toEqual([])),
+      .then((res) => expect(res).toEqual([])),
     engine
       .run({ age: 16, country: "USA" })
-      .then(res => expect(res).toEqual([])),
-    engine.run({ age: 80, state: "NY" }).then(res => expect(res).toEqual([])),
+      .then((res) => expect(res).toEqual([])),
+    engine.run({ age: 80, state: "NY" }).then((res) => expect(res).toEqual([])),
     engine
       .run({ age: 69, country: "USA" })
-      .then(res => expect(res).toEqual([])),
+      .then((res) => expect(res).toEqual([])),
   ]);
 });
 
@@ -312,17 +312,17 @@ test("Nested object queries", () => {
   expect.assertions(5);
 
   return Promise.all([
-    engine.run({ work: {} }).then(res => expect(res).toEqual([])),
-    engine.run({}).then(res => expect(res).toEqual([])),
+    engine.run({ work: {} }).then((res) => expect(res).toEqual([])),
+    engine.run({}).then((res) => expect(res).toEqual([])),
     engine
       .run({ work: { name: "congressman" } })
-      .then(res => expect(res).toEqual([EVENT])),
+      .then((res) => expect(res).toEqual([EVENT])),
     engine
       .run({ work: { name: "president" } })
-      .then(res => expect(res).toEqual([])),
+      .then((res) => expect(res).toEqual([])),
     engine
       .run({ work: { name: "blacksmith" } })
-      .then(res => expect(res).toEqual([])),
+      .then((res) => expect(res).toEqual([])),
   ]);
 });
 
@@ -342,11 +342,11 @@ test("Nested arrays object queries", () => {
   expect.assertions(5);
 
   return Promise.all([
-    engine.run({ hobbies: [] }).then(res => expect(res).toEqual([])),
-    engine.run({}).then(res => expect(res).toEqual([])),
+    engine.run({ hobbies: [] }).then((res) => expect(res).toEqual([])),
+    engine.run({}).then((res) => expect(res).toEqual([])),
     engine
       .run({ hobbies: [{ name: "baseball" }] })
-      .then(res => expect(res).toEqual([EVENT])),
+      .then((res) => expect(res).toEqual([EVENT])),
     engine
       .run({
         hobbies: [
@@ -355,9 +355,9 @@ test("Nested arrays object queries", () => {
           { name: "baseball" },
         ],
       })
-      .then(res => expect(res).toEqual([EVENT])),
+      .then((res) => expect(res).toEqual([EVENT])),
     engine
       .run({ hobbies: [{ name: "reading" }, { name: "jumping" }] })
-      .then(res => expect(res).toEqual([])),
+      .then((res) => expect(res).toEqual([])),
   ]);
 });

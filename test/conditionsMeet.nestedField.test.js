@@ -8,7 +8,7 @@ let obj = {
   ],
 };
 
-test("conditions invalid wrong type", function() {
+test("conditions invalid wrong type", function () {
   let conditions = {
     medications: {
       type: { equal: "D" },
@@ -18,7 +18,7 @@ test("conditions invalid wrong type", function() {
   expect(conditionsMeet(conditions, obj)).toBeFalsy();
 });
 
-test("conditions invalid not liquid", function() {
+test("conditions invalid not liquid", function () {
   let conditions = {
     medications: {
       type: { equal: "A" },
@@ -29,7 +29,7 @@ test("conditions invalid not liquid", function() {
   expect(conditionsMeet(conditions, obj)).toBeFalsy();
 });
 
-test("conditions valid just type", function() {
+test("conditions valid just type", function () {
   let conditions = {
     medications: {
       type: { equal: "A" },
@@ -39,7 +39,7 @@ test("conditions valid just type", function() {
   expect(conditionsMeet(conditions, obj)).toBeTruthy();
 });
 
-test("conditions valid type and liquidity", function() {
+test("conditions valid type and liquidity", function () {
   let conditions = {
     medications: {
       type: { equal: "A" },

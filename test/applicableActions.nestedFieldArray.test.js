@@ -29,7 +29,7 @@ let rulesSimple = [
   },
 ];
 
-test("check simple json work", function() {
+test("check simple json work", function () {
   let factsSimple = {
     accountId: "Lincoln",
     company: "microsoft",
@@ -78,7 +78,7 @@ let rulesNestedSimple = [
   },
 ];
 
-test("check simple nested json work", function() {
+test("check simple nested json work", function () {
   let factsNestedSimple = {
     accountId: "Lincoln",
     company: "microsoft",
@@ -138,7 +138,7 @@ let rulesNestedArray = [
   },
 ];
 
-test("check simple nested array work", function() {
+test("check simple nested array work", function () {
   let factsNestedArray = {
     accountId: "Lincoln",
     company: "microsoft",
@@ -193,7 +193,7 @@ let rulesComplexNestedArray = [
   },
 ];
 
-test("check nested complex array work", function() {
+test("check nested complex array work", function () {
   let factsArrayComplexNestedArray = {
     Accounts: [
       {

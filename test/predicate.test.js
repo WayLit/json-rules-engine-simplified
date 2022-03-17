@@ -1,12 +1,12 @@
 import predicate from "predicate";
 import Engine from "../src/Engine";
 
-test("equal work with same strings", function() {
+test("equal work with same strings", function () {
   expect(predicate.eq("Will", "Will")).toBeTruthy();
   expect(predicate.eq("Will", "1Will")).toBeFalsy();
 });
 
-test("work with empty", function() {
+test("work with empty", function () {
   expect(predicate.empty("")).toBeTruthy();
   expect(predicate.empty(undefined)).toBeTruthy();
   expect(predicate.empty(null)).toBeTruthy();
@@ -30,15 +30,15 @@ let engine = new Engine([
 ]);
 
 test("not in range left", () => {
-  return engine.run({ age: 10 }).then(events => expect(events).toEqual([]));
+  return engine.run({ age: 10 }).then((events) => expect(events).toEqual([]));
 });
 
 test("in range", () => {
   return engine
     .run({ age: 30 })
-    .then(events => expect(events).toEqual(["hit"]));
+    .then((events) => expect(events).toEqual(["hit"]));
 });
 
 test("not in range right", () => {
-  return engine.run({ age: 50 }).then(events => expect(events).toEqual([]));
+  return engine.run({ age: 50 }).then((events) => expect(events).toEqual([]));
 });

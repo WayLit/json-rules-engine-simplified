@@ -1,7 +1,7 @@
 import conditionsMeet from "../src/conditionsMeet";
 import { testInProd } from "./utils";
 
-test("sanity checkField", function() {
+test("sanity checkField", function () {
   expect(() => conditionsMeet("empty", {})).toThrow();
   expect(() => conditionsMeet({}, 0)).toThrow();
 });

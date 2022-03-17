@@ -59,7 +59,7 @@ const schema = {
 test("creation with two events on creation", () => {
   let engine = new Engine([rulesWithTwoEvents], schema);
 
-  return engine.run({ hasBenefitsReference: true }).then(events => {
+  return engine.run({ hasBenefitsReference: true }).then((events) => {
     expect(events.length).toEqual(2);
     expect(events).toEqual(rulesWithTwoEvents.event);
   });
@@ -70,7 +70,7 @@ test("creation with two events on add", () => {
 
   engine.addRule(rulesWithTwoEvents);
 
-  return engine.run({ hasBenefitsReference: true }).then(events => {
+  return engine.run({ hasBenefitsReference: true }).then((events) => {
     expect(events.length).toEqual(2);
     expect(events).toEqual(rulesWithTwoEvents.event);
   });
@@ -79,7 +79,7 @@ test("creation with two events on add", () => {
 test("creation with single event on creatin", () => {
   let engine = new Engine([rulesWithSingleEvent], schema);
 
-  return engine.run({ hasBenefitsReference: true }).then(events => {
+  return engine.run({ hasBenefitsReference: true }).then((events) => {
     expect(events.length).toEqual(1);
     expect(events).toEqual(rulesWithSingleEvent.event);
   });
@@ -90,7 +90,7 @@ test("creation with single event on add", () => {
 
   engine.addRule(rulesWithSingleEvent);
 
-  return engine.run({ hasBenefitsReference: true }).then(events => {
+  return engine.run({ hasBenefitsReference: true }).then((events) => {
     expect(events.length).toEqual(1);
     expect(events).toEqual(rulesWithSingleEvent.event);
   });
