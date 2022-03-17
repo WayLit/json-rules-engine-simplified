@@ -1,67 +1,67 @@
-import Engine from "../../src";
+import Engine from '../../src'
 
-test("simple relevant rules work", () => {
+test('simple relevant rules work', () => {
   let rules = [
     {
       conditions: {
-        a: { less: "$b" },
+        a: { less: '$b' }
       },
       event: {
-        type: "match",
-      },
-    },
-  ];
-  let engine = new Engine(rules);
-  return engine.run({ a: 10, b: 11 }).then((events) => {
-    expect(events.length).toEqual(1);
-    expect(events[0]).toEqual({ type: "match" });
-  });
-});
+        type: 'match'
+      }
+    }
+  ]
+  let engine = new Engine(rules)
+  return engine.run({ a: 10, b: 11 }).then(events => {
+    expect(events.length).toEqual(1)
+    expect(events[0]).toEqual({ type: 'match' })
+  })
+})
 
-test("complicated rules work", () => {
+test('complicated rules work', () => {
   let rules = [
     {
       conditions: {
-        a: { or: [{ less: "$b" }] },
+        a: { or: [{ less: '$b' }] }
       },
       event: {
-        type: "match",
-      },
-    },
-  ];
-  let engine = new Engine(rules);
-  return engine.run({ a: 10, b: 11 }).then((events) => {
-    expect(events.length).toEqual(1);
-    expect(events[0]).toEqual({ type: "match" });
-  });
-});
+        type: 'match'
+      }
+    }
+  ]
+  let engine = new Engine(rules)
+  return engine.run({ a: 10, b: 11 }).then(events => {
+    expect(events.length).toEqual(1)
+    expect(events[0]).toEqual({ type: 'match' })
+  })
+})
 
-test("validation rel fields work", () => {
+test('validation rel fields work', () => {
   let rules = [
     {
       conditions: {
-        a: { less: "$b" },
+        a: { less: '$b' }
       },
-      event: "some",
-    },
-  ];
+      event: 'some'
+    }
+  ]
 
   let invSchema = {
-    type: "object",
+    type: 'object',
     properties: {
-      a: { type: "object" },
-    },
-  };
+      a: { type: 'object' }
+    }
+  }
 
-  expect(() => new Engine(rules, invSchema)).toThrow();
+  expect(() => new Engine(rules, invSchema)).toThrow()
 
   let valSchema = {
-    type: "object",
+    type: 'object',
     properties: {
-      a: { type: "object" },
-      b: { type: "number" },
-    },
-  };
+      a: { type: 'object' },
+      b: { type: 'number' }
+    }
+  }
 
-  expect(() => new Engine(rules, valSchema)).not.toBeUndefined();
-});
+  expect(() => new Engine(rules, valSchema)).not.toBeUndefined()
+})

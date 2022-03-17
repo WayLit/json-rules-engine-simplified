@@ -1,116 +1,116 @@
-import Engine from "../../src/Engine";
+import Engine from '../../src/Engine'
 
 const ADDRESS_SCHEMA = {
-  type: "object",
+  type: 'object',
   properties: {
-    zip: { type: "string" },
-    city: { type: "string" },
-    street: { type: "string" },
-    flat: { type: "string" },
-  },
-};
+    zip: { type: 'string' },
+    city: { type: 'string' },
+    street: { type: 'string' },
+    flat: { type: 'string' }
+  }
+}
 
 const SCHEMA = {
   definitions: {
-    address: ADDRESS_SCHEMA,
+    address: ADDRESS_SCHEMA
   },
-  type: "object",
+  type: 'object',
   properties: {
     homeAddress: {
-      $ref: "#/definitions/address",
+      $ref: '#/definitions/address'
     },
     workAddress: ADDRESS_SCHEMA,
     favFoodLocations: {
-      type: "array",
+      type: 'array',
       items: {
-        $ref: "#/definitions/address",
-      },
+        $ref: '#/definitions/address'
+      }
     },
     favoritePlaces: {
-      type: "array",
-      items: ADDRESS_SCHEMA,
-    },
-  },
-};
+      type: 'array',
+      items: ADDRESS_SCHEMA
+    }
+  }
+}
 
-let engine = new Engine([], SCHEMA);
+let engine = new Engine([], SCHEMA)
 
-test("invalidates ref object", () => {
+test('invalidates ref object', () => {
   expect(() =>
     engine.addRule({
       conditions: {
-        "homeAddress.home": { is: "true" },
-      },
+        'homeAddress.home': { is: 'true' }
+      }
     })
-  ).toThrow();
-});
+  ).toThrow()
+})
 
-test("invalidates embedded object", () => {
+test('invalidates embedded object', () => {
   expect(() =>
     engine.addRule({
       conditions: {
-        "workAddress.home": { is: "true" },
-      },
+        'workAddress.home': { is: 'true' }
+      }
     })
-  ).toThrow();
-});
+  ).toThrow()
+})
 
-test("invalidates array object", () => {
+test('invalidates array object', () => {
   expect(() =>
     engine.addRule({
       conditions: {
-        "favFoodLocations.home": { is: "true" },
-      },
+        'favFoodLocations.home': { is: 'true' }
+      }
     })
-  ).toThrow();
-});
+  ).toThrow()
+})
 
-test("invalidates array with $ref object", () => {
+test('invalidates array with $ref object', () => {
   expect(() =>
     engine.addRule({
       conditions: {
-        "favoritePlaces.home": { is: "true" },
-      },
+        'favoritePlaces.home': { is: 'true' }
+      }
     })
-  ).toThrow();
-});
+  ).toThrow()
+})
 
-test("Validates ref object", () => {
+test('Validates ref object', () => {
   expect(
     engine.addRule({
       conditions: {
-        "homeAddress.zip": { is: "true" },
-      },
+        'homeAddress.zip': { is: 'true' }
+      }
     })
-  ).toBeUndefined();
-});
+  ).toBeUndefined()
+})
 
-test("Validates embedded object", () => {
+test('Validates embedded object', () => {
   expect(
     engine.addRule({
       conditions: {
-        "workAddress.zip": { is: "true" },
-      },
+        'workAddress.zip': { is: 'true' }
+      }
     })
-  ).toBeUndefined();
-});
+  ).toBeUndefined()
+})
 
-test("Validates array object", () => {
+test('Validates array object', () => {
   expect(
     engine.addRule({
       conditions: {
-        "favFoodLocations.zip": { is: "true" },
-      },
+        'favFoodLocations.zip': { is: 'true' }
+      }
     })
-  ).toBeUndefined();
-});
+  ).toBeUndefined()
+})
 
-test("Validates array with $ref object", () => {
+test('Validates array with $ref object', () => {
   expect(
     engine.addRule({
       conditions: {
-        "favoritePlaces.zip": { is: "true" },
-      },
+        'favoritePlaces.zip': { is: 'true' }
+      }
     })
-  ).toBeUndefined();
-});
+  ).toBeUndefined()
+})
