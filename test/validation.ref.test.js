@@ -1,7 +1,7 @@
 import { predicatesFromCondition } from '../src/validation'
 import { testInProd } from './utils'
 
-let schema = {
+const schema = {
   definitions: {
     medication: {
       type: 'object',

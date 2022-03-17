@@ -34,14 +34,14 @@ test('NOT with AND in ( > 5 && < 12) ', function () {
 })
 
 test('OR with < 5 || > 12', () => {
-  let rule = { or: [{ less: 5 }, { greater: 12 }] }
+  const rule = { or: [{ less: 5 }, { greater: 12 }] }
   expect(checkField(1, rule)).toBeTruthy()
   expect(checkField(8, rule)).toBeFalsy()
   expect(checkField(15, rule)).toBeTruthy()
 })
 
 test('or with array', () => {
-  let rule = {
+  const rule = {
     or: [
       { greater: 5, less: 12 },
       { greater: 20, less: 30 }
@@ -55,7 +55,7 @@ test('or with array', () => {
 })
 
 test('and with array', () => {
-  let rule = {
+  const rule = {
     and: [
       { greater: 5, less: 12 },
       { greater: 10, less: 30 }

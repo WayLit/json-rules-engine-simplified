@@ -2,7 +2,7 @@ import Engine from '../../src'
 import { listInvalidFields } from '../../src/validation'
 
 test('support $ single level of nesting', () => {
-  let rules = [
+  const rules = [
     {
       conditions: {
         address$zip: { less: 1000 }
@@ -12,7 +12,7 @@ test('support $ single level of nesting', () => {
       }
     }
   ]
-  let engine = new Engine(rules)
+  const engine = new Engine(rules)
   return engine.run({ address: { zip: 10 } }).then(events => {
     expect(events.length).toEqual(1)
     expect(events[0]).toEqual({ type: 'match' })
@@ -20,7 +20,7 @@ test('support $ single level of nesting', () => {
 })
 
 test('support $ double level of nesting', () => {
-  let rules = [
+  const rules = [
     {
       conditions: {
         person$address$zip: { less: 1000 }
@@ -30,7 +30,7 @@ test('support $ double level of nesting', () => {
       }
     }
   ]
-  let engine = new Engine(rules)
+  const engine = new Engine(rules)
   return engine.run({ person: { address: { zip: 10 } } }).then(events => {
     expect(events.length).toEqual(1)
     expect(events[0]).toEqual({ type: 'match' })
@@ -38,7 +38,7 @@ test('support $ double level of nesting', () => {
 })
 
 test('support $ during validation', () => {
-  let schema = {
+  const schema = {
     type: 'object',
     properties: {
       address: {
@@ -49,7 +49,7 @@ test('support $ during validation', () => {
       }
     }
   }
-  let conditions = [
+  const conditions = [
     {
       address$zip: { less: 1000 }
     }

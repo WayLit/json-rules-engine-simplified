@@ -1,6 +1,6 @@
 import applicableActions from '../src/applicableActions'
 
-let rules = [
+const rules = [
   {
     conditions: {
       'address.line': 'empty'

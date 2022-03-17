@@ -1,7 +1,7 @@
 import applicableActions from '../src/applicableActions'
 
 test('check nested fields work', function () {
-  let rules = [
+  const rules = [
     {
       conditions: { address: 'empty' },
       event: [{ type: 'remove' }, { type: 'add' }]
@@ -15,7 +15,7 @@ test('check nested fields work', function () {
 })
 
 test('check fields of different types', function () {
-  let rules = [
+  const rules = [
     {
       conditions: { address: 'empty' },
       event: ['remove', 1]

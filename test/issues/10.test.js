@@ -4,7 +4,7 @@ import {
   validatePredicates
 } from '../../src/validation'
 
-let rules = [
+const rules = [
   {
     title: 'Rule #2',
     description:
@@ -34,7 +34,7 @@ let rules = [
   }
 ]
 
-let schema = {
+const schema = {
   type: 'object',
   properties: {
     registration: {
@@ -83,7 +83,7 @@ let schema = {
 }
 
 test('#10 validation of predicates', () => {
-  let conditions = rules.map(({ conditions }) => conditions)
+  const conditions = rules.map(({ conditions }) => conditions)
   expect(listInvalidPredicates(conditions, schema)).toEqual([])
   expect(validatePredicates(conditions, schema)).toBeUndefined()
   expect(validateConditionFields(conditions, schema)).toBeUndefined()

@@ -1,7 +1,7 @@
 import Engine from '../../src'
 
 test('simple relevant rules work', () => {
-  let rules = [
+  const rules = [
     {
       conditions: {
         a: { less: '$b' }
@@ -11,7 +11,7 @@ test('simple relevant rules work', () => {
       }
     }
   ]
-  let engine = new Engine(rules)
+  const engine = new Engine(rules)
   return engine.run({ a: 10, b: 11 }).then(events => {
     expect(events.length).toEqual(1)
     expect(events[0]).toEqual({ type: 'match' })
@@ -19,7 +19,7 @@ test('simple relevant rules work', () => {
 })
 
 test('complicated rules work', () => {
-  let rules = [
+  const rules = [
     {
       conditions: {
         a: { or: [{ less: '$b' }] }
@@ -29,7 +29,7 @@ test('complicated rules work', () => {
       }
     }
   ]
-  let engine = new Engine(rules)
+  const engine = new Engine(rules)
   return engine.run({ a: 10, b: 11 }).then(events => {
     expect(events.length).toEqual(1)
     expect(events[0]).toEqual({ type: 'match' })
@@ -37,7 +37,7 @@ test('complicated rules work', () => {
 })
 
 test('validation rel fields work', () => {
-  let rules = [
+  const rules = [
     {
       conditions: {
         a: { less: '$b' }
@@ -46,7 +46,7 @@ test('validation rel fields work', () => {
     }
   ]
 
-  let invSchema = {
+  const invSchema = {
     type: 'object',
     properties: {
       a: { type: 'object' }
@@ -55,7 +55,7 @@ test('validation rel fields work', () => {
 
   expect(() => new Engine(rules, invSchema)).toThrow()
 
-  let valSchema = {
+  const valSchema = {
     type: 'object',
     properties: {
       a: { type: 'object' },

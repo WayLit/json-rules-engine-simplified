@@ -1,6 +1,6 @@
 import conditionsMeet from '../src/conditionsMeet'
 
-let obj = {
+const obj = {
   medications: [
     { type: 'A', isLiquid: false },
     { type: 'B', isLiquid: true },
@@ -9,7 +9,7 @@ let obj = {
 }
 
 test('conditions invalid wrong type', function () {
-  let conditions = {
+  const conditions = {
     medications: {
       type: { equal: 'D' }
     }
@@ -19,7 +19,7 @@ test('conditions invalid wrong type', function () {
 })
 
 test('conditions invalid not liquid', function () {
-  let conditions = {
+  const conditions = {
     medications: {
       type: { equal: 'A' },
       isLiquid: { equal: true }
@@ -30,7 +30,7 @@ test('conditions invalid not liquid', function () {
 })
 
 test('conditions valid just type', function () {
-  let conditions = {
+  const conditions = {
     medications: {
       type: { equal: 'A' }
     }
@@ -40,7 +40,7 @@ test('conditions valid just type', function () {
 })
 
 test('conditions valid type and liquidity', function () {
-  let conditions = {
+  const conditions = {
     medications: {
       type: { equal: 'A' },
       isLiquid: { equal: false }

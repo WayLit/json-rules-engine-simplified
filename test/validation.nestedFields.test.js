@@ -1,7 +1,7 @@
 import Engine from '../src/Engine'
 import { listAllPredicates } from '../src/validation'
 
-let rules = [
+const rules = [
   {
     conditions: {
       medications: {
@@ -15,7 +15,7 @@ let rules = [
   }
 ]
 
-let schema = {
+const schema = {
   definitions: {
     medications: {
       type: 'object',
@@ -63,7 +63,7 @@ test('list all predicates', () => {
 test('valid rules', () => {
   expect(new Engine(rules, schema)).not.toBeUndefined()
 
-  let engine = new Engine(rules, schema)
+  const engine = new Engine(rules, schema)
   return engine
     .run({ primaryMedication: { type: 'C' }, medications: [{ type: 'D' }] })
     .then(event => expect(event.length).toEqual(1))

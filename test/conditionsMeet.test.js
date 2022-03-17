@@ -7,7 +7,7 @@ test('sanity checkField', function () {
 })
 
 test('run predicate against array and elements', () => {
-  let condition = {
+  const condition = {
     options: 'empty'
   }
   expect(conditionsMeet(condition, [''])).toBeTruthy()
@@ -15,7 +15,7 @@ test('run predicate against array and elements', () => {
 })
 
 test('handles array of non-objects', () => {
-  let condition = {
+  const condition = {
     options: {
       contains: 'foo'
     }
@@ -27,7 +27,7 @@ test('handles array of non-objects', () => {
 
 // throws error
 test('handles array of numbers', () => {
-  let condition = {
+  const condition = {
     options: {
       contains: 2
     }
@@ -38,7 +38,7 @@ test('handles array of numbers', () => {
 })
 
 test('single line', () => {
-  let condition = {
+  const condition = {
     firstName: 'empty'
   }
   expect(conditionsMeet(condition, {})).toBeTruthy()
@@ -48,7 +48,7 @@ test('single line', () => {
 })
 
 test('default use and', () => {
-  let condition = {
+  const condition = {
     firstName: {
       equal: 'Will'
     },
@@ -64,7 +64,7 @@ test('default use and', () => {
 })
 
 test('NOT condition', () => {
-  let condition = {
+  const condition = {
     not: {
       firstName: {
         equal: 'Will'

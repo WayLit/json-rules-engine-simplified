@@ -33,7 +33,7 @@ const SCHEMA = {
   }
 }
 
-let engine = new Engine([], SCHEMA)
+const engine = new Engine([], SCHEMA)
 
 test('invalidates ref object', () => {
   expect(() =>

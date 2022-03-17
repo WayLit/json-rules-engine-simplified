@@ -1,6 +1,6 @@
 import Engine from '../../src'
 
-let rules = [
+const rules = [
   {
     conditions: {
       'arr[1].foo': { equal: true }
@@ -14,7 +14,7 @@ let rules = [
     event: 'what'
   }
 ]
-let engine = new Engine(rules)
+const engine = new Engine(rules)
 
 test('support array element reference first true', () => {
   return engine.run({ arr: [{ foo: true }, { foo: false }] }).then(events => {

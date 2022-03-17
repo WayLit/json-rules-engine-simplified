@@ -1,6 +1,6 @@
 import Engine from '../src/index'
 
-let rules = [
+const rules = [
   {
     conditions: {
       age: {
@@ -15,14 +15,14 @@ let rules = [
   }
 ]
 
-let schema = {
+const schema = {
   properties: {
     age: { type: 'number' },
     telephone: { type: 'string' }
   }
 }
 
-let engine = new Engine(rules, schema)
+const engine = new Engine(rules, schema)
 
 test('age greater 5', () => {
   return engine

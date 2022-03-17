@@ -14,7 +14,7 @@ function conditionsFrom(rules) {
   return rules.map(({ conditions }) => conditions)
 }
 
-let defSchema = {
+const defSchema = {
   properties: {
     firstName: { type: 'string' },
     password: { type: 'string' },
@@ -53,10 +53,10 @@ test('Two field rule ', () => {
     }
   ])
 
-  let predicates = listAllPredicates(conditions, defSchema)
+  const predicates = listAllPredicates(conditions, defSchema)
   expect(predicates).toEqual(['empty', 'greater', 'less'])
 
-  let fields = listAllFields(conditions)
+  const fields = listAllFields(conditions)
   expect(fields).toEqual(['firstName', 'age'])
 })
 
@@ -77,15 +77,15 @@ test('3 field rule ', () => {
     }
   ])
 
-  let predicates = listAllPredicates(conditions, defSchema)
+  const predicates = listAllPredicates(conditions, defSchema)
   expect(predicates).toEqual(['empty', 'greater', 'less'])
 
-  let fields = listAllFields(conditions)
+  const fields = listAllFields(conditions)
   expect(fields).toEqual(['firstName', 'age'])
 })
 
 test('invalidate predicates', () => {
-  let invalidConditions = conditionsFrom([
+  const invalidConditions = conditionsFrom([
     {
       event: { type: 'remove' },
       conditions: {
@@ -112,7 +112,7 @@ test('invalidate predicates', () => {
 })
 
 test('invalid field', () => {
-  let invalidFieldConditions = conditionsFrom([
+  const invalidFieldConditions = conditionsFrom([
     {
       conditions: { lastName: 'empty' },
       event: {
@@ -142,7 +142,7 @@ test('invalid field', () => {
 })
 
 test('invalid OR', () => {
-  let invalidOrConditions = conditionsFrom([
+  const invalidOrConditions = conditionsFrom([
     {
       conditions: {
         or: { firstName: 'empty' }
@@ -155,7 +155,7 @@ test('invalid OR', () => {
 })
 
 test('invalid field or', () => {
-  let invalidFieldOr = conditionsFrom([
+  const invalidFieldOr = conditionsFrom([
     {
       conditions: {
         firstName: {
@@ -177,7 +177,7 @@ test('invalid field or', () => {
 })
 
 test('invalid field NOT or', () => {
-  let invalidFieldNotWithOr = conditionsFrom([
+  const invalidFieldNotWithOr = conditionsFrom([
     {
       conditions: {
         not: {
@@ -195,7 +195,7 @@ test('invalid field NOT or', () => {
 })
 
 test('invalid fields 1', () => {
-  let inValidField = conditionsFrom([
+  const inValidField = conditionsFrom([
     {
       conditions: {
         lastName: 'empty'
@@ -211,7 +211,7 @@ test('invalid fields 1', () => {
 })
 
 test('valid field or', () => {
-  let validFieldOr = conditionsFrom([
+  const validFieldOr = conditionsFrom([
     {
       conditions: {
         firstName: {
@@ -243,7 +243,7 @@ test('extract predicates from rule when with or & and', () => {
 })
 
 test('extract predicates from condition when with or & and', () => {
-  let schema = {
+  const schema = {
     properties: {
       age: { type: 'integer' },
       grade: { type: 'integer' }

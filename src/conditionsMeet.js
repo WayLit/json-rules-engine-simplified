@@ -1,6 +1,6 @@
-import { isObject, toError, selectRef } from './utils'
 import checkField from './checkField'
-import { OR, AND, NOT } from './constants'
+import { AND, NOT, OR } from './constants'
+import { isObject, selectRef, toError } from './utils'
 
 export function toRelCondition(refCondition, formData) {
   if (Array.isArray(refCondition)) {
@@ -25,7 +25,7 @@ export default function conditionsMeet(condition, formData) {
     return false
   }
   return Object.keys(condition).every(ref => {
-    let refCondition = condition[ref]
+    const refCondition = condition[ref]
     if (ref === OR) {
       return refCondition.some(rule => conditionsMeet(rule, formData))
     } else if (ref === AND) {
@@ -33,9 +33,9 @@ export default function conditionsMeet(condition, formData) {
     } else if (ref === NOT) {
       return !conditionsMeet(refCondition, formData)
     } else {
-      let refVal = selectRef(ref, formData)
+      const refVal = selectRef(ref, formData)
       if (Array.isArray(refVal)) {
-        let condMeatOnce = refVal.some(val =>
+        const condMeatOnce = refVal.some(val =>
           isObject(val) ? conditionsMeet(refCondition, val) : false
         )
         // It's either true for an element in an array or for the whole array

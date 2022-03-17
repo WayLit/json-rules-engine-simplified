@@ -1,7 +1,7 @@
 import predicate from 'predicate'
 import { listInvalidPredicates } from '../src/validation'
 
-let schema = {
+const schema = {
   type: 'object',
   properties: {
     firstName: { type: 'string' }

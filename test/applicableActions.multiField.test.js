@@ -8,7 +8,7 @@ const ACTION = {
 const NO_ACTION = []
 
 test('OR works', () => {
-  let orRules = [
+  const orRules = [
     {
       conditions: {
         or: [{ firstName: 'empty' }, { nickName: { is: 'admin' } }]
@@ -28,7 +28,7 @@ test('OR works', () => {
 })
 
 test('AND works', () => {
-  let andRules = [
+  const andRules = [
     {
       conditions: {
         and: [

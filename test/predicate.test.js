@@ -22,7 +22,7 @@ predicate.range = predicate.curry((val, range) => {
   )
 })
 
-let engine = new Engine([
+const engine = new Engine([
   {
     conditions: { age: { range: [20, 40] } },
     event: 'hit'

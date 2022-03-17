@@ -8,7 +8,7 @@ const DISPLAY_MESSAGE_SIMPLE = {
   }
 }
 
-let rulesSimple = [
+const rulesSimple = [
   {
     conditions: {
       and: [
@@ -56,7 +56,7 @@ const DISPLAY_MESSAGE_NESTED_SIMPLE = {
   }
 }
 
-let rulesNestedSimple = [
+const rulesNestedSimple = [
   {
     conditions: {
       and: [
@@ -114,7 +114,7 @@ const DISPLAY_MESSAGE_NESTED_ARRAY = {
   }
 }
 
-let rulesNestedArray = [
+const rulesNestedArray = [
   {
     conditions: {
       and: [
@@ -165,7 +165,7 @@ const DISPLAY_MESSAGE_COMPLEX_NESTED_ARRAY = {
   }
 }
 
-let rulesComplexNestedArray = [
+const rulesComplexNestedArray = [
   {
     conditions: {
       Accounts: {

@@ -1,9 +1,9 @@
-import { validateConditionFields, validatePredicates } from './validation'
 import applicableActions from './applicableActions'
 import { isDevelopment, isObject, toArray, toError } from './utils'
+import { validateConditionFields, validatePredicates } from './validation'
 
 const validate = schema => {
-  let isSchemaDefined = schema !== undefined && schema !== null
+  const isSchemaDefined = schema !== undefined && schema !== null
   if (isDevelopment() && isSchemaDefined) {
     if (!isObject(schema)) {
       toError(`Expected valid schema object, but got - ${schema}`)
@@ -26,10 +26,12 @@ class Engine {
       toArray(rules).forEach(rule => this.addRule(rule))
     }
   }
+
   addRule = rule => {
     this.validate(rule)
     this.rules.push(rule)
   }
+
   run = formData => Promise.resolve(applicableActions(this.rules, formData))
 }
 

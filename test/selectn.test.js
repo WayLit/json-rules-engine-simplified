@@ -1,7 +1,7 @@
 import selectn from 'selectn'
 
 test('selectn on array', function () {
-  let a = {
+  const a = {
     medications: {
       type: 'A'
     }
@@ -16,5 +16,5 @@ test('selectn on array', function () {
   //     { type: "C" }
   //   ]
   // };
-  //expect(selectn("medications.type", obj)).toEqual(["A", "B", "C"]);
+  // expect(selectn("medications.type", obj)).toEqual(["A", "B", "C"]);
 })

@@ -33,7 +33,7 @@ test('error throws exception', () => {
 })
 
 test('extract referenced schema', () => {
-  let schema = {
+  const schema = {
     definitions: {
       medication: {
         type: 'object',
@@ -72,7 +72,7 @@ test('extract referenced schema', () => {
     }
   }
 
-  let {
+  const {
     definitions: { medication },
     properties: { registration }
   } = schema

@@ -1,7 +1,7 @@
 import Engine from '../src/Engine'
 import { testInProd } from './utils'
 
-let invalidRules = [
+const invalidRules = [
   {
     conditions: {
       age: {
@@ -20,7 +20,7 @@ let invalidRules = [
   }
 ]
 
-let schema = {
+const schema = {
   properties: {
     age: { type: 'number' },
     telephone: { type: 'string' }

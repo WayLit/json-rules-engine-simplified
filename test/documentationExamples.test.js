@@ -1,13 +1,13 @@
 import Engine from '../src/Engine'
 
-let EVENT = {
+const EVENT = {
   type: 'remove',
   params: {
     field: 'password'
   }
 }
 
-let schema = {
+const schema = {
   definitions: {
     hobby: {
       type: 'object',
@@ -69,7 +69,7 @@ let schema = {
 }
 
 test('first example', () => {
-  let rules = [
+  const rules = [
     {
       conditions: {
         firstName: 'empty'
@@ -78,7 +78,7 @@ test('first example', () => {
     }
   ]
 
-  let engine = new Engine(rules, schema)
+  const engine = new Engine(rules, schema)
   expect.assertions(5)
 
   return Promise.all([
@@ -91,7 +91,7 @@ test('first example', () => {
 })
 
 test('Conditionals with arguments', () => {
-  let rules = [
+  const rules = [
     {
       conditions: {
         age: { less: 16 }
@@ -100,7 +100,7 @@ test('Conditionals with arguments', () => {
     }
   ]
 
-  let engine = new Engine(rules, schema)
+  const engine = new Engine(rules, schema)
   expect.assertions(5)
 
   return Promise.all([
@@ -113,7 +113,7 @@ test('Conditionals with arguments', () => {
 })
 
 test('AND', () => {
-  let rules = [
+  const rules = [
     {
       conditions: {
         age: {
@@ -125,7 +125,7 @@ test('AND', () => {
     }
   ]
 
-  let engine = new Engine(rules, schema)
+  const engine = new Engine(rules, schema)
   expect.assertions(4)
 
   return Promise.all([
@@ -137,7 +137,7 @@ test('AND', () => {
 })
 
 test('NOT', () => {
-  let rules = [
+  const rules = [
     {
       conditions: {
         age: {
@@ -151,7 +151,7 @@ test('NOT', () => {
     }
   ]
 
-  let engine = new Engine(rules, schema)
+  const engine = new Engine(rules, schema)
   expect.assertions(4)
 
   return Promise.all([
@@ -163,7 +163,7 @@ test('NOT', () => {
 })
 
 test('OR', () => {
-  let rules = [
+  const rules = [
     {
       conditions: {
         age: {
@@ -174,7 +174,7 @@ test('OR', () => {
     }
   ]
 
-  let engine = new Engine(rules, schema)
+  const engine = new Engine(rules, schema)
   expect.assertions(4)
 
   return Promise.all([
@@ -186,7 +186,7 @@ test('OR', () => {
 })
 
 test('multi field default AND', () => {
-  let rules = [
+  const rules = [
     {
       conditions: {
         age: { less: 70 },
@@ -196,7 +196,7 @@ test('multi field default AND', () => {
     }
   ]
 
-  let engine = new Engine(rules, schema)
+  const engine = new Engine(rules, schema)
   expect.assertions(5)
 
   return Promise.all([
@@ -217,7 +217,7 @@ test('multi field default AND', () => {
 })
 
 test('multi field OR', () => {
-  let rules = [
+  const rules = [
     {
       conditions: {
         or: [
@@ -234,7 +234,7 @@ test('multi field OR', () => {
     }
   ]
 
-  let engine = new Engine(rules, schema)
+  const engine = new Engine(rules, schema)
   expect.assertions(5)
 
   return Promise.all([
@@ -257,7 +257,7 @@ test('multi field OR', () => {
 })
 
 test('multi field NOT', () => {
-  let rules = [
+  const rules = [
     {
       conditions: {
         not: {
@@ -276,7 +276,7 @@ test('multi field NOT', () => {
     }
   ]
 
-  let engine = new Engine(rules, schema)
+  const engine = new Engine(rules, schema)
   expect.assertions(5)
 
   return Promise.all([
@@ -295,7 +295,7 @@ test('multi field NOT', () => {
 })
 
 test('Nested object queries', () => {
-  let rules = [
+  const rules = [
     {
       conditions: {
         'work.name': { is: 'congressman' }
@@ -304,7 +304,7 @@ test('Nested object queries', () => {
     }
   ]
 
-  let engine = new Engine(rules, schema)
+  const engine = new Engine(rules, schema)
   expect.assertions(5)
 
   return Promise.all([
@@ -323,7 +323,7 @@ test('Nested object queries', () => {
 })
 
 test('Nested arrays object queries', () => {
-  let rules = [
+  const rules = [
     {
       conditions: {
         hobbies: {
@@ -334,7 +334,7 @@ test('Nested arrays object queries', () => {
     }
   ]
 
-  let engine = new Engine(rules, schema)
+  const engine = new Engine(rules, schema)
   expect.assertions(5)
 
   return Promise.all([
