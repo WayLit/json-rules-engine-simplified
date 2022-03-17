@@ -6,19 +6,11 @@ module.exports = {
   context: __dirname + '/src',
   entry: './index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist/',
     filename: 'json-rules-engine-simplified.js',
     library: 'JSONSchemaForm',
     libraryTarget: 'umd',
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production'),
-      },
-    }),
-  ],
   devtool: 'source-map',
   externals: {
     react: {
@@ -29,10 +21,10 @@ module.exports = {
     },
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loaders: ['babel-loader'],
+        use: 'babel-loader',
       },
     ],
   },
