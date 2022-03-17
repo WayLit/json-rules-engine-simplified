@@ -26,7 +26,11 @@ export function toArray(event) {
 }
 
 export function toError(message) {
-  throw new ReferenceError(message)
+  if (isDevelopment()) {
+    throw new ReferenceError(message)
+  } else {
+    console?.error(message)
+  }
 }
 
 export function isRefArray(field, schema) {
