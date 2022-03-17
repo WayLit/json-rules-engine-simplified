@@ -90,7 +90,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RxNT/json-rules-engine-simplified.git"
+    "url": "git+https://github.com/WayLit/json-rules-engine-simplified.git"
   },
   "keywords": [
     "rules",
@@ -98,5 +98,5 @@
     "rules engine"
   ],
   "license": "Apache-2.0",
-  "homepage": "https://github.com/RxNT/json-rules-engine-simplified#readme"
+  "homepage": "https://github.com/WayLit/json-rules-engine-simplified#readme"
 }
