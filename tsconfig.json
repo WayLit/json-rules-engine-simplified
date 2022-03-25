@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    // "allowJs": true,
+    "strict": true,
+    "jsx": "react",
+    "incremental": true,
+    "experimentalDecorators": true,
+    "lib": ["dom", "es2015"],
+    "esModuleInterop": true,
+    "baseUrl": "./src"
+  },
+  "exclude": ["dist", "lib", "node_modules", "coverage"]
+}

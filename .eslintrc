@@ -11,7 +11,7 @@
     "jest/no-focused-tests": "error",
     "jest/no-identical-title": "error",
     "jest/valid-expect": "error",
-    "no-extra-boolean-cast": "off",
+    "no-extra-boolean-cast": "off"
   },
   "env": {
     "es6": true,

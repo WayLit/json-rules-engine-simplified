@@ -1,11 +1,12 @@
-import predicate from 'predicate'
+import predicate, { Predicate } from 'predicate'
 import { AND, NOT, OR } from './constants'
 import { isObject } from './utils'
+import { Condition, ConditionType, Rule } from './types'
 
-const doCheckField = (fieldVal, rule) => {
+const doCheckField = (fieldVal: unknown, rule: ConditionType): boolean => {
   if (isObject(rule)) {
     return Object.keys(rule).every(p => {
-      const subRule = rule[p]
+      const subRule = (rule as Record<string, Condition>)[p]
       if (p === OR || p === AND) {
         if (Array.isArray(subRule)) {
           if (p === OR) {
@@ -25,10 +26,10 @@ const doCheckField = (fieldVal, rule) => {
       }
     })
   } else {
-    return predicate[rule](fieldVal)
+    return predicate[rule as string](fieldVal)
   }
 }
 
-export default function checkField(fieldVal, rule) {
+export default function checkField(fieldVal: unknown, rule: Condition) {
   return doCheckField(fieldVal, rule)
 }

@@ -1,15 +1,14 @@
-var webpack = require('webpack')
-var path = require('path')
-
+const webpack = require('webpack')
+const path = require('path')
 module.exports = {
   cache: true,
-  context: __dirname + '/src',
-  entry: './index.js',
+  context: path.join(__dirname, 'src'),
+  entry: './index.ts',
   output: {
     publicPath: '/dist/',
     filename: 'json-rules-engine-simplified.js',
     library: 'JSONSchemaForm',
-    libraryTarget: 'umd',
+    libraryTarget: 'umd'
   },
   devtool: 'source-map',
   externals: {
@@ -17,15 +16,22 @@ module.exports = {
       root: 'React',
       commonjs: 'react',
       commonjs2: 'react',
-      amd: 'react',
-    },
+      amd: 'react'
+    }
+  },
+  resolve: {
+    extensions: ['.ts', '.js']
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        use: 'babel-loader',
+        use: 'babel-loader'
       },
-    ],
-  },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader'
+      }
+    ]
+  }
 }
