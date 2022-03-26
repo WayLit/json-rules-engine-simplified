@@ -11,13 +11,13 @@ export interface Condition {
 }
 export interface Rule {
   conditions: Condition
-  event: Event
+  event: Event | Event[]
 }
 
 export interface Params {
   [key: string]: unknown
 }
 export interface Event {
-  type: 'remove' | 'require'
+  type: string
   params: Params
 }

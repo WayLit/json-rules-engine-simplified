@@ -4,6 +4,7 @@ module.exports = {
   cache: true,
   context: path.join(__dirname, 'src'),
   entry: './index.ts',
+  devtool: 'inline-source-map',
   output: {
     publicPath: '/dist/',
     filename: 'json-rules-engine-simplified.js',
@@ -20,7 +21,7 @@ module.exports = {
     }
   },
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.ts', '.js', '.tsx']
   },
   module: {
     rules: [
@@ -30,7 +31,8 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        use: 'ts-loader'
+        use: 'ts-loader',
+        exclude: /node_modules/
       }
     ]
   }

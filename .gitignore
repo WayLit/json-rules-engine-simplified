@@ -39,3 +39,6 @@ public/
 json-schema-playing.iml
 
 *.iml
+.parcel-cache
+out
+src/*.d.ts

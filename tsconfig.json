@@ -2,14 +2,21 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
-    // "allowJs": true,
+    "allowJs": true,
     "strict": true,
     "jsx": "react",
     "incremental": true,
     "experimentalDecorators": true,
     "lib": ["dom", "es2015"],
     "esModuleInterop": true,
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "declaration": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "paths": {
+      "*": ["./types/*"]
+    }
   },
+  "include": ["src", "types"],
   "exclude": ["dist", "lib", "node_modules", "coverage"]
 }
